@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class SenderApp {
-    private final static String QUEUE_NAME = "hello";
-    private final static String EXCHANGER_NAME = "hello_exchanger";
+    private final static String QUEUE_NAME = "IT";
+    private final static String EXCHANGER_NAME = "IT_exchanger";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -20,11 +20,11 @@ public class SenderApp {
 
             channel.exchangeDeclare(EXCHANGER_NAME, BuiltinExchangeType.DIRECT);
             channel.queueDeclare(QUEUE_NAME,false,false,false, null);
-            channel.queueBind(QUEUE_NAME, EXCHANGER_NAME, "JAVA");
+            channel.queueBind(QUEUE_NAME, EXCHANGER_NAME, "PHP");
 
 
-            String message = "Hello World";
-            channel.basicPublish(EXCHANGER_NAME,"JAVA", null, message.getBytes());
+            String message = "php some message)";
+            channel.basicPublish(EXCHANGER_NAME,"PHP", null, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
 
         }

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class ReceiverApp {
-    private final static String QUEUE_NAME = "hello";
+    private final static String QUEUE_NAME = "IT";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
